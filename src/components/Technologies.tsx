@@ -8,7 +8,7 @@ type TechnologiesProps = {
 
 const Technologies = ({ technologiesPromise }: TechnologiesProps) => {
     const technology = use(technologiesPromise);
-    console.log(technology);
+    // console.log(technology);
     return <div>
         <Card technology={technology}/>
     </div>;

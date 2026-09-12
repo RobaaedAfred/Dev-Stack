@@ -20,11 +20,11 @@ const Hero = () => {
 
                 <div className='flex flex-col sm:flex-row gap-4 mt-6'>
                     <button className='bg-linear-to-r from-[#F97316] to-[#EC4899]
-                     text-white px-6 py-3 rounded-2xl'>
+                     text-white px-6 py-3 rounded-[10px]'>
                         Explore Technologies
                     </button>
 
-                    <button className='border border-pink-600  text-pink-600 px-6 py-3 rounded-2xl'>
+                    <button className='border border-pink-600  text-pink-600 px-6 py-3 rounded-[10px]'>
                         Learn More
                     </button>
                 </div>

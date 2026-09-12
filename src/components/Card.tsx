@@ -49,7 +49,8 @@ transition: Bounce,
     };
 
     return (
-        <div className="grid grid-cols-1 gap-6 lg:grid-cols-4 container mx-auto">
+        // console.log(technology)
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-4 container mx-auto mb-7">
             <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:col-span-3 lg:grid-cols-3">
                 {technology.map((technologi: Itechnology) => {
                     const added = isInStack(technologi.id);

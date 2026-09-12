@@ -4,6 +4,7 @@ import Nav from "./components/Nav"
 import Technologies from "./components/Technologies";
 import type { Itechnology } from "./Types/types";
 import { ToastContainer } from "react-toastify";
+import Footer from "./components/Footer";
 
 const technologiesFetch = async (): Promise<Itechnology[]> => {
 
@@ -24,6 +25,7 @@ function App() {
         <Technologies technologiesPromise={technologiesPromise} />
       </Suspense>
       <ToastContainer />
+      <Footer/>
     </>
   )
 }
