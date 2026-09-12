@@ -3,6 +3,7 @@ import Hero from "./components/Hero"
 import Nav from "./components/Nav"
 import Technologies from "./components/Technologies";
 import type { Itechnology } from "./Types/types";
+import { ToastContainer } from "react-toastify";
 
 const technologiesFetch = async (): Promise<Itechnology[]> => {
 
@@ -22,6 +23,7 @@ function App() {
       <Suspense fallback={<h2>Web Technologies Loading...</h2>}>
         <Technologies technologiesPromise={technologiesPromise} />
       </Suspense>
+      <ToastContainer />
     </>
   )
 }
