@@ -29,37 +29,37 @@ const Footer = () => {
                     <div className="hidden md:col-span-3 md:flex md:justify-between">
 
                         <div>
-                            <h3 className="text-sm font-semibold text-gray-900">
-                                PRODUCT
+                            <h3 className="text-sm font-semibold text-gray-900"><a href='#'>
+                                PRODUCT</a>
                             </h3>
 
                             <ul className="mt-4 space-y-3 text-sm text-slate-500">
-                                <li>Home</li>
-                                <li>Technologies</li>
-                                <li>Projects</li>
+                                <li><a href='$'>Home</a></li>
+                                <li><a href='#'>Technologies</a></li>
+                                <li><a href='#'>Projects</a></li>
                             </ul>
                         </div>
 
                         <div>
                             <h3 className="text-sm font-semibold text-gray-900">
-                                COMPANY
+                                <a href='#'></a>COMPANY
                             </h3>
 
                             <ul className="mt-4 space-y-3 text-sm text-slate-500">
-                                <li>About</li>
-                                <li>Contact</li>
-                                <li>Careers</li>
+                                <li><a href='#'>About</a>/li>
+                                <li><a href='#'>Contact</a></li>
+                                <li><a href='#'>Careers</a></li>
                             </ul>
                         </div>
 
                         <div>
                             <h3 className="text-sm font-semibold text-gray-900">
-                                LEGAL
+                                <a href='#'>LEGAL</a>
                             </h3>
 
                             <ul className="mt-4 space-y-3 text-sm text-slate-500">
-                                <li>Privacy Policy</li>
-                                <li>Terms of Service</li>
+                                <li><a href='#'>>Privacy Policy</a</li>
+                                <li><a href='#'>Terms of Service</a></li>
                             </ul>
                         </div>
 
@@ -75,8 +75,8 @@ const Footer = () => {
                         </p>
 
                         <div className="flex items-center gap-6">
-                            <p>Privacy</p>
-                            <p>Terms</p>
+                            <p><a href='#'>Privacy</a></p>
+                            <p><a href='#'>Terms</a></p>
                         </div>
 
                     </div>
