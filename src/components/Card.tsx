@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { Itechnology } from '../Types/types';
+import { Bounce, toast, ToastContainer } from 'react-toastify';
 
 interface CardProps {
     technology: Itechnology[];
@@ -8,16 +9,28 @@ interface CardProps {
 const Card = ({ technology }: CardProps) => {
     const [stack, setStack] = useState<Itechnology[]>([]);
 
-    const isInStack = (id: Itechnology['id']) => stack.filter((t) => t.id === id ).length>0;
+    const isInStack = (id: Itechnology['id']) => stack.filter((t) => t.id === id).length > 0;
 
     const handleAdd = (tech: Itechnology) => {
         setStack((prev) =>
             prev.some((t) => t.id === tech.id) ? prev : [...prev, tech]
         );
+        toast(`${tech.name} added to stack.`)
     };
 
-    const handleRemove = (id: Itechnology['id']) => {
-        setStack((prev) => prev.filter((t) => t.id !== id));
+    const handleRemove = (tech: Itechnology) => {
+        setStack((prev) => prev.filter((t) => t.id !== tech.id));
+        toast.warn(`${tech.name} removed from the stack!`, {
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+            transition: Bounce,
+        });
     };
 
     const handleRemoveAll = () => {
@@ -34,7 +47,7 @@ const Card = ({ technology }: CardProps) => {
                             key={technologi.id}
                             className="rounded-2xl border border-slate-200 bg-white p-7 shadow-sm"
                         >
-                        
+
                             <div className="flex items-center justify-between">
                                 <img
                                     src={technologi.icon}
@@ -67,9 +80,8 @@ const Card = ({ technology }: CardProps) => {
 
                             <button
                                 onClick={() => handleAdd(technologi)}
-                                className={`mt-5 w-full rounded-[10px] py-3 text-white transition-colors ${
-                                    added ? 'bg-slate-300' : 'bg-[#0b1020] hover:bg-slate-800'
-                                }`}
+                                className={`mt-5 w-full rounded-[10px] py-3 text-white transition-colors ${added ? 'bg-slate-300' : 'bg-[#0b1020] hover:bg-slate-800'
+                                    }`}
                             >
                                 {added ? 'Added to Stack' : 'Add to Stack'}
                             </button>
@@ -81,7 +93,7 @@ const Card = ({ technology }: CardProps) => {
             <div className="rounded-2xl border border-slate-200 bg-white p-6 h-fit">
                 <h2 className="text-lg font-bold text-gray-900">Your Stack</h2>
                 <p className="mt-1 text-sm text-slate-400">
-                    {stack.length === 0 ? 'No technologies selected yet.': `${stack.length} Technology Selected`}
+                    {stack.length === 0 ? 'No technologies selected yet.' : `${stack.length} Technology Selected`}
                 </p>
 
                 {stack.length === 0 ? (
@@ -112,7 +124,7 @@ const Card = ({ technology }: CardProps) => {
                                         </div>
                                     </div>
                                     <button
-                                        onClick={() => handleRemove(tech.id)}
+                                        onClick={() => handleRemove(tech)}
                                         className="text-slate-400"
                                         aria-label={`Remove ${tech.name}`}
                                     >
@@ -128,6 +140,7 @@ const Card = ({ technology }: CardProps) => {
                         >
                             Remove All
                         </button>
+
                     </>
                 )}
             </div>
