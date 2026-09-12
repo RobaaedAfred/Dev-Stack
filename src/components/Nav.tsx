@@ -19,14 +19,13 @@ const Nav = () => {
       <img src={Logo} alt="" className="w-28" />
     </div>
 
-    {/* Menu - Tablet & PC */}
     <div className="hidden md:flex flex-1 justify-center">
       <ul className="flex gap-6 lg:gap-8 text-sm lg:text-base font-semibold">
-        <li className='text-[#DB2777]'>Home</li>
-        <li>Technologies</li>
-        <li>Projects</li>
-        <li>About</li>
-        <li>Contact</li>
+        <li className='text-[#DB2777]'><a href="#">Home</a></li>
+        <li><a href="#">Technologies</a></li>
+        <li><a href="#">Projects</a></li>
+        <li> <a href="#">About</a></li>
+        <li><a href="#">Contact</a></li>
       </ul>
     </div>
 

@@ -12,10 +12,23 @@ const Card = ({ technology }: CardProps) => {
     const isInStack = (id: Itechnology['id']) => stack.filter((t) => t.id === id).length > 0;
 
     const handleAdd = (tech: Itechnology) => {
-        setStack((prev) =>
-            prev.some((t) => t.id === tech.id) ? prev : [...prev, tech]
-        );
-        toast(`${tech.name} added to stack.`)
+        if (isInStack(tech.id)) {
+            toast.error(`${tech.name} is already in your stack!`, {
+                position: "top-center",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "colored",
+                transition: Bounce,
+            });
+            return;
+        }
+
+        setStack((prev) => [...prev, tech]);
+        toast(`${tech.name} added to stack.`);
     };
 
     const handleRemove = (tech: Itechnology) => {
@@ -36,16 +49,16 @@ const Card = ({ technology }: CardProps) => {
     const handleRemoveAll = () => {
         setStack([]);
         toast.success('Removed all item from the stack.', {
-position: "top-center",
-autoClose: 5000,
-hideProgressBar: false,
-closeOnClick: false,
-pauseOnHover: true,
-draggable: true,
-progress: undefined,
-theme: "dark",
-transition: Bounce,
-});
+            position: "top-center",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: false,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            transition: Bounce,
+        });
     };
 
     return (
@@ -95,7 +108,7 @@ transition: Bounce,
                                 className={`mt-5 w-full rounded-[10px] py-3 text-white transition-colors ${added ? 'bg-slate-300' : 'bg-[#0b1020] hover:bg-slate-800'
                                     }`}
                             >
-                                {added ? 'Added to Stack' : 'Add to Stack'}
+                                {added ? '✓ Added to Stack' : 'Add to Stack'}
                             </button>
                         </div>
                     );
